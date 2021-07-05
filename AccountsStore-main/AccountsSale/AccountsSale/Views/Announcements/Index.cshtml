@@ -1,0 +1,35 @@
+@model IEnumerable<AccountsSale.Models.Turnover.Announcement>
+
+<a asp-controller="Announcements" asp-action="Create">Создать объявление</a>
+
+
+<table class="table">
+    @foreach (var announcement in Model)
+    {
+        <tr>
+            <td>@announcement.Name</td>
+            <td>@announcement.Cost</td>
+            <td>
+                <form asp-action="Delete" asp-route-id="@announcement.Id" method="post">
+                    <button type="submit" class="btn btn-sm btn-danger">
+                        Удалить
+                    </button>
+                </form>
+            </td>
+            <td>
+                <form asp-action="Details" asp-route-id="@announcement.Id">
+                    <button type="submit" class="btn btn-sm btn-danger">
+                        Просмотр
+                    </button>
+                </form>
+            </td>
+            <td>
+                <form asp-action="Edit" asp-route-id="@announcement.Id" method="get">
+                    <button type="submit" class="btn btn-sm btn-danger">
+                        Редактирование
+                    </button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>

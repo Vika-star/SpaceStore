@@ -1,0 +1,9 @@
+<h1>личный кабинет</h1>
+
+<a asp-area="" asp-controller="PersonalArea" asp-action="PersonalData">личные данные</a>
+<a asp-area="" asp-controller="Announcements" asp-action="Index">объявления</a>
+<a asp-area="" asp-controller="PersonalArea" asp-action="Index">сделки</a>
+
+<form method="post" asp-controller="Account" asp-action="Logout">
+    <input type="submit" value="Выход" />
+</form>
