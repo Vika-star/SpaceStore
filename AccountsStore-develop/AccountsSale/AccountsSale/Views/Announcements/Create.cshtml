@@ -1,0 +1,79 @@
+@* <form asp-controller="Announcements" asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="name">Имя</label>
+        <input name="name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="cost">Цена</label>
+        <input type="number" name="cost" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="description">Описание</label>
+        <textarea column="20" rows="10" name="description" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="AccountPassword">Пароль от аккаунта</label>
+        <input type="text" name="AccountPassword" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="AccountLogin">Логин от аккаунта</label>
+        <input type="text" name="AccountLogin" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="IsVip">Сделать объявление вип</label>
+        <input type="checkbox" name="IsVip" class="form-control" value="true"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Сохранить объявление</button>
+</form> *@
+
+
+<section class="create-product-container">
+    <h2 class="text-center">Добавление товара</h2>
+    <div class="container-prosuct">
+        <form asp-controller="Announcements" asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col">
+
+                    <div class="form-group">
+                        <label for="name" class="text-lable control-label">Имя</label>
+                        <input name="name" class="form-input form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="cost" class="text-lable control-label">Цена</label>
+                        <input type="number" name="cost" class="form-input form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="text-lable control-label">Описание</label>
+                        <textarea column="20" rows="10" name="description" class="form-input form-control"></textarea>
+                    </div>
+
+                </div>
+                <div class="col">
+
+                    <div class="form-group">
+                        <label for="AccountLogin" class="text-lable control-label">Логин от аккаунта</label>
+                        <input type="text" name="AccountLogin" class="form-input form-control"  />
+                    </div>
+                    <div class="form-group">
+                        <label for="AccountPassword" class="text-lable control-label">Пароль от аккаунта</label>
+                        <input type="text" name="AccountPassword" class="form-input form-control"  />
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" name="IsVip" value="true"/>
+                        <label for="IsVip" class="text-lable control-label">Сделать объявление вип</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-btn form-group">
+                <div class="d-inline">
+                    <a asp-action="Index" class="btn btn-outline-primary">Вернуться назад</a>
+                </div>
+                <div class="d-inline">
+                    <button type="submit" class="btn btn-outline-white">Создать</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</section>

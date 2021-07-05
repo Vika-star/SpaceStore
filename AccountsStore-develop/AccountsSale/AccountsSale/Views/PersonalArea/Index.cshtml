@@ -1,0 +1,120 @@
+@* <h1>личный кабинет</h1> *@
+
+@* @if(User.IsInRole("admin"))
+    {
+    <h3>Администрирование</h3>
+    <div>
+    <a asp-action="Index" asp-controller="Roles">Роли</a>
+    </div>
+    <div>
+    <a asp-action="Index" asp-controller="Users">Пользователи</a>
+    </div>
+    <hr>
+    }
+    @if(User.IsInRole("employee"))
+    {
+    <h3>Модерирование</h3>
+    <a asp-action="Index" asp-controller="AnnouncementProcessing">Обработка объявлений</a>
+    <hr>
+    }
+
+    <a asp-area="" asp-controller="PersonalArea" asp-action="PersonalData">личные данные</a>
+    <a asp-area="" asp-controller="Announcements" asp-action="Index">объявления</a>
+    <a asp-area="" asp-controller="PersonalArea" asp-action="Purchases">сделки</a>
+
+    <form method="post" asp-controller="Account" asp-action="Logout">
+    <input type="submit" value="Выход" />
+    </form> *@
+
+
+
+<section class="self-container container-myself-info">
+
+    <h2>@ViewData["Title"]</h2>
+    <div class="container-area back-blur">
+
+        <div class="row ">
+            <div class="col">
+                <h3 class="text-center">Личный кабинет</h3>
+                <ul class=" block-btn-persarea nav justify-content-center">
+                    <li class="nav-item">
+                        <a asp-controller="PersonalArea" asp-action="PersonalData"
+                            class="btn btn-outline-success btn-persdata  nav-link">Личные данные</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="Announcements" asp-action="Index"
+                            class="btn-persdata btn btn-outline-primary nav-link">Объявления</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="PersonalArea" asp-action="Purchases"
+                            class="btn-persdata btn btn-outline-warning nav-link">Сделки</a>
+                    </li>
+                </ul>
+                <ul class=" block-btn-persarea nav justify-content-center">
+                    <li class="nav-item">
+                        <form method="post" asp-controller="Account" asp-action="Logout">
+                            <input type="submit" class="btn-persdata btn btn-danger nav-link" value="Выход" />
+                        </form>
+                    </li>
+
+                </ul>
+
+
+                <hr>
+                @if (User.IsInRole("admin"))
+                {
+                    <h3 class="text-center">Администрирование</h3>
+
+                    <ul class=" block-btn-persarea nav justify-content-center">
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="Roles" class="btn-persdata btn btn-info nav-link">Роли</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="Users"
+                            class="btn-persdata btn btn-warning nav-link">Пользователи</a>
+                        </li>
+                    </ul>
+                    <hr>
+                }
+                @if (User.IsInRole("employee"))
+                {
+                    <h3 class="text-center">Модерирование</h3>
+                    <ul class=" block-btn-persarea nav justify-content-center">
+                        <li class="nav-item">
+                            @* <a class="nav-link active" aria-current="page" href="#">Active</a> *@
+                            @* <a asp-action="Index" asp-controller="ProductContainers"
+                            class="btn-persdata btn btn-outline-primary nav-link">Продукты</a> *@
+
+                            <a asp-action="Index" asp-controller="AnnouncementProcessing" class="btn-persdata btn btn-outline-primary nav-link">Обработка объявлений</a>
+                        </li>
+                        @* <li class="nav-item">
+                            <a asp-action="Index" asp-controller="ProductCategories"
+                            class="btn-persdata btn btn-outline-warning nav-link">Категории</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-action="OrdersToCollect" asp-controller="OrderProcessing"
+                            class="btn-persdata btn btn-outline-info nav-link">Заказы к
+                                сбору</a>
+                        </li> *@
+                    </ul>
+                    <hr>
+                }
+@* 
+                @if (User.IsInRole("delivery"))
+                {
+                    <h3 class="text-center">Доставка</h3>
+                    <ul class=" block-btn-persarea nav justify-content-center">
+                        <li class="nav-item">
+
+                            <a asp-action="OrdersToDelivery" asp-controller="OrderProcessing"
+                            class="btn-persdata btn btn-outline-success nav-link">Доставка</a>
+                        </li>
+                    </ul>
+                    <hr>
+                } *@
+
+
+            </div>
+        </div>
+    </div>
+</section>

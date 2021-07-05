@@ -1,0 +1,105 @@
+body .menu-nav{
+    margin: 50px 0px;
+}
+body .menu-nav .nav-link{
+    color: rgba(255, 255, 255, 0.8) !important;
+    margin: 0 30px; 
+    font-size: 16px;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+    border: 0.1px solid rgba(255, 255, 255, 0.8)!important;
+    background-color: rgba(255, 255, 255, 0) !important; 
+}
+
+/* rule-container */
+body .rule-container .rule-element h2{
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 37px;
+    
+    color: #FFFFFF;
+
+    margin-bottom: 50px;
+}
+body .rule-container .rule-element h3{
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 37px;
+    
+    color: #FFFFFF;
+    margin: 20px 0 10px 0;
+}
+body .rule-container .rule-element h5{
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 37px;
+    
+    color: #FFFFFF;
+    margin: 5px 0;
+}
+body .rule-container .rule-element h2 span{
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    font-feature-settings: 'pnum' on, 'onum' on;
+
+    color: #FFFFFF;
+}
+body .rule-container .rule-element table{
+    color: #FFFFFF;
+    padding: 20px;
+}
+body .rule-container .rule-element table th{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 100%;
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+    
+    height: 50px;
+    padding-left: 20px;
+    border-bottom: 1px solid rgba(234, 234, 234, 0.5);
+}
+body .rule-container .rule-element table td{
+    border-bottom: 1px solid rgba(234, 234, 234, 0.5);
+}
+body .rule-container .rule-element table td:first-child, body .rule-container .rule-element table th:first-child{
+    border-right: 1px solid rgba(234, 234, 234, 0.5);
+}
+body .rule-container .rule-element table tbody .text-descript{
+    padding: 10px;
+    font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 121.9%;
+/* or 22px */
+
+letter-spacing: 0.03em;
+
+/* Текст */
+
+color: #EAEAEA;
+}
+body .rule-container .rule-element .row .col .text-descript{
+    padding: 10px;
+    font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 121.9%;
+/* or 22px */
+
+letter-spacing: 0.03em;
+
+/* Текст */
+
+color: #EAEAEA;
+}

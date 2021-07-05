@@ -1,0 +1,47 @@
+body{
+    
+    background-image: url('/image/back.png');
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-family: 'Raleway', sans-serif !important;
+}
+.hr-body{
+    background-color: rgb(209, 209, 209);
+}
+
+.main-hr{
+    width: auto;
+    margin: 0 150px 60px 150px;
+}
+
+
+.container-myself-info
+{
+    height: auto;
+    min-height: 380px;
+}
+
+.btn-danger, .btn-outline-primary, .btn-outline-danger, .btn-success, .btn-outline-warning, .btn-outline-info,
+ .btn-outline-success, .btn-info, .btn-warning, .btn-outline-white {
+    padding: 10px 35px !important;
+    border-radius: 30px !important;
+}
+
+.btn-outline-white
+{
+    color: #fff !important;
+    font-weight:500;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif !important;
+    /* line-height: 24.84px; */
+    padding: 12px 40px;
+    margin: 10px;
+    
+    background: rgba(255, 255, 255, 0.1) !important;
+ 
+    border: 1px solid #FFFFFF !important;
+    box-sizing: border-box;
+    border-radius: 30px;
+}
+

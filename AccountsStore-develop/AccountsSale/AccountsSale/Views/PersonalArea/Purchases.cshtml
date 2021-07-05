@@ -1,0 +1,50 @@
+@model AccountsSale.Models.Turnover.Purchase
+
+@*<p>Сделки</p>
+
+@foreach (var item in Model.Announcements)
+{
+    <p>@item.Name</p>
+    <p>@item.Cost</p>
+    <p>@item.Sale.User.Email</p>
+    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+} *@
+
+<section class="table-announ container-myself-info back-blur">
+    <h2 class="text-center">Совершенные сделки</h2>
+    <table class="table ">
+        <thead>
+            <tr class="mx-auto">
+                <th scope="col">
+                    Название
+                </th>
+                <th scope="col">
+                    Стоимость
+                </th>
+                <th scope="col">Продавец</th>
+                <th scope="col"></th>
+            </tr>
+            <tr class="justTh">
+                <th colspan="4"></th>
+            </tr>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Announcements)
+            {
+                <tr>
+                    <th scope="row">@item.Name</th>
+                    <td>@item.Cost</td>
+                    <td>
+                        @if(item.Sale != null && item.Sale.User!= null && item.Sale.User.Email!=null)
+                            @item.Sale.User.Email
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn-details">Детали</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</section>

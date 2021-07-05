@@ -1,0 +1,78 @@
+﻿@model IEnumerable<AccountsSale.Models.Turnover.Announcement>
+
+@{
+    ViewData["Title"] = "Главная";
+}
+@* <style>
+    body{
+
+    background-image: url('/image/back.png');
+    }
+    </style> *@
+
+<section class="main-element">
+    <div class="container">
+        <div class="text-container">
+            <h1 class="text-title">В игре всегда все получается.
+                Найди свой игровой аккаунт</h1>
+            <div class="text-content">
+                <p class="discription">
+                    Мы даем возможность выбрать любой аккаунт на ваш вкус. Вас ждут самые разнообразные игры, которые
+                    собранны в один аккант.
+                </p>
+            </div>
+            <a asp-action="Index" asp-controller="Traiding" class="btn">Перейти в магазин</a>
+        </div>
+        <div class="image-container">
+            <!-- <div></div> -->
+            <img src="~/image/main.png" alt="main">
+            <!-- <div></div> -->
+        </div>
+    </div>
+</section>
+
+
+
+<hr class="hr-body">
+
+
+<section class="album-section">
+    <div class="container">
+        <h2 class="text-center">
+            <span>02.</span> Аккаунт на ваш вкус
+        </h2>
+        @* <hr class="hr-body"> *@
+        <div class="album">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+                    @foreach (var item in @Model)
+                    {
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                @if (item.IsVip)
+                                {
+                                    <img src="~/image/card/vip_announ.png" width="240" height="auto" alt="">
+                                }
+                                else
+                                {
+                                    <img src="~/image/card/just_announ.png" width="240" height="auto" alt="">
+                                }
+                                <div class="card-body">
+                                    <h4 class="text-title">@string.Join("", item.Name.Take(25))</h4>
+                                    <p class="text-muted">@string.Join("", item.Description.Take(100))</p>
+                                    <p class="card-text ">@Math.Round(item.Cost, 2)<small>руб.коп.</small></p>
+                                    <div class="footer-card d-flex justify-content-between align-items-center">
+                                        <a asp-action="Details" asp-controller="Traiding" asp-route-id="@item.Id"
+                                                    class="btn btn-card">Посмотреть</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

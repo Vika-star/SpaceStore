@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+
+    <link rel="stylesheet" href="~/css/HomeIndex.css" />
+    <link rel="stylesheet" href="~/css/AlbumCard.css" />
+    <link rel="stylesheet" href="~/css/FilterAccount.css" />
+    <link rel="stylesheet" href="~/css/AlbumTraiding.css" />
+    <link rel="stylesheet" href="~/css/TraidingIndex.css" /> 
+    <link rel="stylesheet" href="~/css/PersonalArea.css" /> 
+    <link rel="stylesheet" href="~/css/Role.css" /> 
+    <link rel="stylesheet" href="~/css/AnnouncemetsIndex.css" /> 
+    <link rel="stylesheet" href="~/css/AnnoncemetsCreate.css" /> 
+    <link rel="stylesheet" href="~/css/AccountLogReg.css" /> 
+    <link rel="stylesheet" href="~/css/AnnouncementsDetails.css" /> 
+    <link rel="stylesheet" href="~/css/Contacts.css" /> 
+    <link rel="stylesheet" href="~/css/Assistance.css" /> 
+
+    <link rel="stylesheet" href="~/css/Payment.css">
+
+    <link rel="stylesheet" href="~/css/LayoutHeader.css" />
+    <link rel="stylesheet" href="~/css/LayoutFooter.css" />
+    <link rel="stylesheet" href="~/css/LayoutBody.css" />
+    
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">    
+</head>
+
+<body>
+    @* <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home"
+                                asp-action="Index">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Traiding"
+                                asp-action="Index">Торговая
+                                площадка</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home"
+                                asp-action="Rules">Правила</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <details>
+                                <summary>Картинка</summary>
+                                @if (!User.Identity.IsAuthenticated)
+                                {
+                                    <div>
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Account"
+                                        asp-action="Login">Вход</a>
+                                    </div>
+                                    <div>
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Account"
+                                        asp-action="Register">Регистрация</a>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div>
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="PersonalArea"
+                                        asp-action="Index">Личный кабинет</a>
+                                    </div>
+                                }
+                            </details>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header> *@
+    
+    <header>
+        <div class="container-fluid">
+
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/image/icon-img/logo.png" alt="logo-header" id="logo-header">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-first navbar-nav justify-content-center">
+                        <a class="nav-item nav-link" asp-area="" asp-controller="Home"
+                            asp-action="Index">Главная</a>
+                        <a class="nav-item nav-link" asp-area="" asp-controller="Traiding"
+                            asp-action="Index">Торговая площадка</a>
+                        <a class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="Contacts">Контакты</a>
+                        <a class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="Assistance">Правила и поддержка</a>
+
+                    </div>
+                    <div class="navbar-second navbar-nav  justify-content-end">
+                        @* <a class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="Index">
+                            <img src="~/image/shopping-bag.png" alt="user" style="width: auto; height: auto;">
+                        </a> *@
+
+
+                        <div class="dropdown">
+                            <button class="btn btn-circle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <img src="~/image/icon-img/user.png" alt="user-header">
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                @if (!User.Identity.IsAuthenticated)
+                                {
+                                    <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Login">Вход в
+                                        аккаунт</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Account"
+                                    asp-action="Register">Зарегистрироваться</a>
+
+                                }
+                                else
+                                {
+                                    <a class="dropdown-item" asp-area="" asp-controller="PersonalArea"
+                                    asp-action="Index">Личный
+                                        кабинет</a>
+                                    <div class="dropdown-divider"></div>
+                                    <form method="post" asp-controller="Account" asp-action="Logout">
+                                        <input class="dropdown-item" type="submit" value="Выход" />
+                                    </form>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+    </header>
+
+
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-xs-2 col-md-2">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                        <img src="~/image/icon-img/logo.png" alt="logo-header" id="logo-header">
+                    </a>
+                </div>
+                <div class="col-xs-1 col-md-1"></div>
+                <div class="col-xs-1 col-md-1">
+                    <h5>Магазин</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Новинки</a></li>
+                        <li><a href="#">Лучшие товары</a></li>
+                        <li><a href="#">Парфюмерия</a></li>
+                        <li><a href="#">Макияж</a></li>
+                        <li><a href="#">Уход</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-1 col-md-1"></div>
+                <div class="col-xs-1 col-md-1">
+                    <h5>Способы</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">О доставке</a></li>
+                        <li><a href="#">Способы оплаты</a></li>
+                        <li><a href="#">Пользовательское</br>соглашение</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-1 col-md-1"></div>
+                <div class="col-xs-1 col-md-1">
+                    <h5>Компания</h5>
+                    <ul class="footer-links">
+                        <li><a href="http://scanfcode.com/about/">О нас</a></li>
+                        <li><a href="http://scanfcode.com/contact/">Сотрудничество</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-xs-1 col-md-2"></div>
+                <div class="col-xs-2 col-md-2">
+                    <h5>Контакты</h5>
+                    <ul class="footer-links">
+                        <li><a href="tel:+375297418529"> <img src="~/image/icon-img/phone-call.png" alt="phone"> +375(29) 741-85-29</a>
+                        </li>
+                        <li><a href="mail:vicosmetic@gmail.com"> <img src="~/image/icon-img/envelope.png" alt="email">
+                                vicosmetic@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-12 ">
+                    <ul class="social-icons">
+                        <li><button class="btn btn-circle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <img src="~/image/icon-img/facebook.png" alt="user">
+                            </button></li>
+                        <li><button class="btn btn-circle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <img src="~/image/icon-img/instagram.png" alt="user">
+                            </button></li>
+                        <li><button class="btn btn-circle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <img src="~/image/icon-img/playstore.png" alt="user">
+                            </button></li>
+                        <li><button class="btn btn-circle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <img src="~/image/icon-img/app-store.png" alt="user">
+                            </button></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <p class="copyright-text">&copy;2021 Create by Einherjar</p>
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <ul class="social-icons pay-icons">
+                        <li><button class="btn btn-circle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <img src="~/image/icon-img/mastercard.png" alt="user">
+                            </button></li>
+                        <li><button class="btn btn-circle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <img src="~/image/icon-img/visa.png" alt="user">
+                            </button></li>
+                        <li><button class="btn btn-circle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <img src="~/image/icon-img/webmoney.png" alt="user">
+                            </button></li>
+                        <li><button class="btn btn-circle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <img src="~/image/icon-img/yandex.png" alt="user">
+                            </button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

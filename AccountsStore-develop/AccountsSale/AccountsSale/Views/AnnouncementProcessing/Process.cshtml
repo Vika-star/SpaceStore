@@ -1,0 +1,115 @@
+@model AccountsSale.Models.Turnover.Announcement
+@* 
+
+<div class="form-group">
+    Имя - @Model.Name
+</div>
+<div class="form-group">
+    cost - @Model.Cost
+</div>
+<div class="form-group">
+    Description - @Model.Description
+</div>
+<div class="form-group">
+    account password - @Model.AccountPassword
+</div>
+<div class="form-group">
+    account login - @Model.AccountEmail
+</div>
+<div class="form-group">
+    Is Vip - @Model.IsVip
+</div>
+
+<form asp-action="Process">
+    <input name="IsRejected" value="true" type="checkbox" checked="checked" hidden>
+    <input type="number" name="AnnouncementId" value="@Model.Id" hidden>
+    <input type="submit" value="Отклонить заказ">
+</form>
+
+<form asp-action="Process">
+    <label for="">Безопасная сделка</label>
+    <input type="checkbox" name="IsApproved" value="true">
+
+    <input name="IsChecked" value="true" type="checkbox" checked="checked" hidden>
+    <input type="number" name="AnnouncementId" value="@Model.Id" hidden>
+
+    <input type="submit" value="Подтвердить">
+</form> *@
+
+
+<section class="order-product-element">
+    <table class="order-product-container">
+        <tr>
+
+            <td class="one">
+                @if (Model.IsVip)
+                {
+                    <div class="body-img-one">
+                        <div class="img-one">
+                            <img src="~/image/card/details_vip.png" class='card-img' alt="">
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="body-img-one">
+                        <div class="img-one">
+                            <img src="~/image/card/details_just.png" class='card-img' alt="">
+                        </div>
+                    </div>
+                }
+
+
+            </td>
+
+            <td>
+                <div class="text-container">
+                    <h2 class="text-title">@Model.Name</h2>
+                    <hr>
+                    <div class="text-content">
+                        <h5 class="text-cost">@Math.Round(Model.Cost, 2)<span>руб.коп.</span></h5>
+                        <h5 class="title-discrip">Описание товара</h5>
+                        <p class="discription">
+                            @Model.Description
+                        </p>
+                        <p class="discription"> <span>Логин аккаунта:</span>
+                            @Model.AccountEmail
+                        </p>
+                        <p class="discription"> <span>Пароль от аккаунта:</span>
+                            @Model.AccountPassword
+                        </p>
+                        <p class="discription"> <span>Объявление VIP:</span>@Model.IsVip
+                        </p>
+
+                        <div class="btn-add-bag">
+                            <form asp-action="Process">
+                                <div class="form-group">
+                                    <input type="checkbox" name="IsApproved" value="true">
+                                    <input name="IsChecked" value="true" type="checkbox" checked="checked" hidden>
+                                    <label for="IsChecked" class="lable-check">Безопасная сделка</label>
+                                </div>
+
+
+                                <input type="number" name="AnnouncementId" value="@Model.Id" hidden>
+                                <div class="form-group">
+                                    <input type="submit" class="btn btn-outline-pink" value="Подтвердить">
+                                </div>
+                            </form>
+                            <form asp-action="Process">
+                                <input name="IsRejected" value="true" type="checkbox" checked="checked" hidden>
+                                <input type="number" name="AnnouncementId" value="@Model.Id" hidden>
+                                <input type="submit" class="btn btn-outline-danger" value="Отклонить заказ">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="last-td">
+                <a asp-action="Index" class="btn btn-outline-primary">Вернуться назад</a>
+            </td>
+        </tr>
+    </table>
+
+</section>

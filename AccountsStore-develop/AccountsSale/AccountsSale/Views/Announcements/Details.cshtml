@@ -1,0 +1,69 @@
+@model AccountsSale.ViewModels.AnnouncementViewModel
+
+@* <div class="form-group">
+    <label for="name">Имя</label>
+    <p>@Model.Name</p>
+</div>
+<div class="form-group">
+    <label for="cost">Цена</label>
+    <p>@Model.Cost</p>
+</div>
+<div class="form-group">
+    <label for="description">Описание</label>
+    <p>@Model.Description</p>
+</div> *@
+
+
+<section class="order-product-element">
+    <table class="order-product-container">
+        <tr>
+
+            <td class="one">
+                @if (Model.IsVip)
+                {
+                    <div class="body-img-one">
+                        <div class="img-one">
+                            <img src="~/image/card/details_vip.png" class='card-img' alt="">
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="body-img-one">
+                        <div class="img-one">
+                            <img src="~/image/card/details_just.png" class='card-img' alt="">
+                        </div>
+                    </div>
+                }
+
+
+            </td>
+
+            <td>
+                <div class="text-container">
+                    <h2 class="text-title">@Model.Name</h2>
+                    <hr>
+                    <div class="text-content">
+                        <h5 class="text-cost">@Math.Round(Model.Cost, 2)<span>руб.коп.</span></h5>
+                        <h5 class="title-discrip">Описание товара</h5>
+                        <p class="discription">
+                            @Model.Description
+                        </p>
+                        <div class="btn-add-bag">
+                            <form asp-controller="Orders" asp-action="Add" method="POST">
+                                <input type="number" name="productId" value="@Model.Id" hidden>
+                                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-pink">Изменить</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="last-td">
+                <a asp-action="Index" class="btn btn-outline-primary">Вернуться назад</a>
+            </td>
+        </tr>
+    </table>
+
+</section>

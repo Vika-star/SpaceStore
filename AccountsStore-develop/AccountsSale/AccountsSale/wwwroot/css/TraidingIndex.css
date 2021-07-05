@@ -1,0 +1,40 @@
+/* pagination-container */
+body .pagination-container{
+    margin-left: 330px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+body .pagination-container nav .pagination .page-item-text {
+    font-size: 20px !important;
+}
+body .pagination-container nav .pagination .page-item .page-link{
+    border-radius:  30px !important;
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(234, 234, 234, 0.7);
+    margin: 0 5px;
+    padding: 10px 20px;
+}
+body .pagination-container nav .pagination .page-item .page-linl-disabled{
+    border-radius:  30px !important;
+    margin: 0 5px;
+    padding: 10px 20px;
+    color: rgba(255, 255, 255, 0.6) !important;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(234, 234, 234, 0.7);
+}
+body .pagination-container nav .pagination .page-item .page-link:hover{
+    color: black !important;
+    background: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(234, 234, 234, 1);
+}
+body .pagination-container nav .pagination .page-item .page-linl-disabled:hover{
+    border-radius:  30px !important;
+    margin: 0 5px;
+    padding: 10px 20px;
+    color: black !important;
+    background: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(234, 234, 234, 1);
+}
+

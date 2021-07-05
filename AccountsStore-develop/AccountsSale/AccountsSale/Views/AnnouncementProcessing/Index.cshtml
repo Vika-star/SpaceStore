@@ -1,0 +1,62 @@
+@model IEnumerable<AccountsSale.Models.Turnover.Announcement>
+
+@* <table>
+    <tr>
+        <td>
+            обработка
+        </td>
+    </tr>
+@foreach (var announcement in Model)
+{
+    <tr>
+        <td>
+            <p>@announcement.CreationDate</p>
+            <p>@announcement.Cost</p>
+        </td>
+        <td>
+            <a asp-action="Process" asp-controller="AnnouncementProcessing" asp-route-id="@announcement.Id">Обработать</a>
+        </td>
+    </tr>
+}
+
+</table> *@
+
+
+<section class="table-announ container-myself-info back-blur">
+    <h2 class="text-center">Обработка объявлений</h2>
+    <table class="table ">
+        <thead>
+            <tr class="mx-auto">
+                <th scope="col">
+                    Название
+                </th>
+                <th scope="col">
+                    Стоимость
+                </th>
+                <th scope="col">Дата</th>
+                <th scope="col"></th>
+            </tr>
+            <tr class="justTh">
+                <th colspan="4"></th>
+            </tr>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var announcement in Model)
+            {
+                <tr>
+                    <th scope="row">@announcement.Name</th>
+                    <td>@announcement.Cost</td>
+                    <td>
+                        @announcement.CreationDate
+                    </td>
+                    <td>
+                        @* <a asp-action="Details" asp-route-id="@item.Id" class="btn-details">Детали</a> *@
+                        <a asp-action="Process" asp-controller="AnnouncementProcessing" asp-route-id="@announcement.Id" class="btn-edit">Обработать</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</section>

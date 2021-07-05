@@ -1,0 +1,54 @@
+
+body header {
+    color: #fff;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24.84px;
+    
+    margin: 10px 140px 40px 140px !important;
+  }
+  body header .navbar .navbar-brand .logo-header{
+    width: 127px;
+    height: 50px;
+  }
+  body header .collapse .navbar-first {
+    width: auto;
+    height: auto;
+    margin-right: 115px;
+    margin-left: 152px;
+  }
+  body header .collapse .navbar-first .nav-item{
+    width: auto;
+    height: auto;
+    margin-right: 30px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-family: 'Raleway', sans-serif !important;
+  }
+  body header .collapse .navbar-first .nav-link{
+    width: auto;
+    height: auto;
+    margin-right: 30px;
+    color: #fff;
+  }
+  body header .collapse .navbar-first .nav-link:hover{
+    text-decoration: underline;
+    color: #fff;
+  }
+  body header .collapse .navbar-second .dropdown .dropdown-menu{
+    color: #fff !important;
+    width: 200px;
+    height: auto;
+    background-color: rgba(89, 3, 43, 0.4);
+    border: 1px solid rgba(90, 6, 65);
+  }
+  body header .collapse .navbar-second .dropdown .dropdown-menu .dropdown-item{
+    color: #fff !important;
+    background-color: rgba(89, 3, 43, 0);
+  }
+  body header .collapse .navbar-second .dropdown .dropdown-menu .dropdown-item:hover{
+    color: #fff !important;
+    background-color: rgba(89, 3, 43, 0);
+  }
+  
